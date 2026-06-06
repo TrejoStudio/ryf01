@@ -47,19 +47,19 @@ export function TrustBadges() {
           {brands.map((brand, index) => (
             <div
               key={brand.name}
-              className={`glass-card-colored mx-auto flex flex-col justify-center items-center text-center transition-all duration-700 ease-out ${
+              className={`mx-auto flex flex-col justify-center items-center text-center transition-all duration-700 ease-out ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="relative w-36 h-36 flex items-center justify-center p-4">
+              <div className="relative w-40 h-24 flex items-center justify-center">
                 <Image
                   src={brand.logo}
                   alt={brand.name}
-                  width={144}
-                  height={144}
+                  width={160}
+                  height={96}
                   className="object-contain max-w-full max-h-full transition-transform duration-500 hover:scale-110"
                 />
               </div>
