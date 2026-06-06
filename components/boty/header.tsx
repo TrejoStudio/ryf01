@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X, ShoppingBag, Search, User } from "lucide-react"
 import { CartDrawer } from "./cart-drawer"
 import { useCart } from "./cart-context"
@@ -30,25 +31,32 @@ export function Header() {
               href="/shop"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              Shop
+              TIENDA
             </Link>
             <Link
               href="/"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              About
+              NOSOTROS
             </Link>
             <Link
               href="/"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              Ingredients
+              CONTACTO
             </Link>
           </div>
 
           {/* Logo */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2">
-            <h1 className="font-serif text-3xl tracking-wider text-foreground">Boty</h1>
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
+            <Image
+              src="/marcas/Logo RyF Color.png"
+              alt="Logo RyF"
+              width={40}
+              height={40}
+              className="object-contain animate-scale-fade-in"
+            />
+            <h1 className="font-serif text-3xl tracking-wider text-foreground whitespace-nowrap">partes y equipos</h1>
           </Link>
 
           {/* Right Actions */}
@@ -87,34 +95,33 @@ export function Header() {
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden overflow-hidden boty-transition ${
-            isMenuOpen ? "max-h-64 pb-6" : "max-h-0"
-          }`}
+          className={`lg:hidden overflow-hidden boty-transition ${isMenuOpen ? "max-h-64 pb-6" : "max-h-0"
+            }`}
         >
           <div className="flex flex-col gap-4 pt-4 border-t border-border/50">
             <Link
               href="/shop"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              Shop
+              TIENDA
             </Link>
             <Link
               href="/"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              About
+              NOSOTROS
             </Link>
             <Link
               href="/"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              Ingredients
+              CONTACTO
             </Link>
             <Link
               href="/"
               className="text-sm tracking-wide text-foreground/70 hover:text-foreground boty-transition"
             >
-              Account
+              USUARIO
             </Link>
           </div>
         </div>
