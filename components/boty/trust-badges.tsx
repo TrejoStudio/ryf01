@@ -1,29 +1,15 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Leaf, Droplets, Sparkles, Flower2 } from "lucide-react"
+import Image from "next/image"
 
-const badges = [
-  {
-    icon: Leaf,
-    title: "Organic Certified",
-    description: "100% organic ingredients"
-  },
-  {
-    icon: Droplets,
-    title: "Natural Extracts",
-    description: "Pure botanical formulas"
-  },
-  {
-    icon: Sparkles,
-    title: "Clean Beauty",
-    description: "No toxic chemicals"
-  },
-  {
-    icon: Flower2,
-    title: "Vegan Formula",
-    description: "Plant-powered skincare"
-  }
+const brands = [
+  { name: "CASE", logo: "/marcas/CASE.png" },
+  { name: "CAT", logo: "/marcas/CAT.png" },
+  { name: "DEERE", logo: "/marcas/DEERE.png" },
+  { name: "JCB", logo: "/marcas/JCB.png" },
+  { name: "KOMATSU", logo: "/marcas/KOMATSU.png" },
+  { name: "VOLVO", logo: "/marcas/VOLVO.png" }
 ]
 
 export function TrustBadges() {
@@ -56,21 +42,27 @@ export function TrustBadges() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div 
           ref={sectionRef}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 justify-center items-center"
         >
-          {badges.map((badge, index) => (
+          {brands.map((brand, index) => (
             <div
-              key={badge.title}
-              className={`glass-card-colored mx-auto p-6 lg:p-8 flex flex-col justify-center items-center text-center transition-all duration-700 ease-out ${
+              key={brand.name}
+              className={`glass-card-colored mx-auto flex flex-col justify-center items-center text-center transition-all duration-700 ease-out ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-8'
               }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <badge.icon className="text-primary mb-4 mx-auto size-12" strokeWidth={1} />
-              <h3 className="font-serif text-foreground mb-2 text-2xl">{badge.title}</h3>
-              <p className="text-sm text-muted-foreground">{badge.description}</p>
+              <div className="relative w-36 h-36 flex items-center justify-center p-4">
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={144}
+                  height={144}
+                  className="object-contain max-w-full max-h-full transition-transform duration-500 hover:scale-110"
+                />
+              </div>
             </div>
           ))}
         </div>
