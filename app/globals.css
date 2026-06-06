@@ -6,19 +6,26 @@
 /* Boty — Natural Skincare Theme */
 :root {
   /* Brand Colors: Sand, Cream, Warm Beige, Olive Green, Soft Taupe, Charcoal */
-  --background: #F7F4EF; /* Cream */
-  --foreground: #2C2C2C; /* Charcoal */
-  --card: #EDE6DC; /* Sand */
+  --background: #F7F4EF;
+  /* Cream */
+  --foreground: #2C2C2C;
+  /* Charcoal */
+  --card: #EDE6DC;
+  /* Sand */
   --card-foreground: #2C2C2C;
   --popover: #F7F4EF;
   --popover-foreground: #2C2C2C;
-  --primary: #4F5B3A; /* Olive Green */
+  --primary: #4F5B3A;
+  /* Olive Green */
   --primary-foreground: #F7F4EF;
-  --secondary: #D8CFC4; /* Warm Beige */
+  --secondary: #D8CFC4;
+  /* Warm Beige */
   --secondary-foreground: #2C2C2C;
-  --muted: #EDE6DC; /* Sand */
+  --muted: #EDE6DC;
+  /* Sand */
   --muted-foreground: #6B6560;
-  --accent: #B8ADA3; /* Soft Taupe */
+  --accent: #B8ADA3;
+  /* Soft Taupe */
   --accent-foreground: #2C2C2C;
   --destructive: #A65D57;
   --destructive-foreground: #F7F4EF;
@@ -123,9 +130,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -148,6 +157,7 @@
     filter: blur(12px);
     transform: translateY(10px);
   }
+
   100% {
     opacity: 1;
     filter: blur(0);
@@ -165,6 +175,7 @@
     opacity: 0;
     transform: scale(0.9);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -193,6 +204,7 @@
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.05) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
+
 .glass-btn-primary:hover {
   background: color-mix(in srgb, var(--primary) 90%, transparent) !important;
   border-color: var(--primary) !important;
@@ -209,6 +221,7 @@
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.02) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
+
 .glass-btn-outline:hover {
   background: color-mix(in srgb, var(--background) 40%, transparent) !important;
   border-color: color-mix(in srgb, var(--border) 70%, transparent) !important;
@@ -223,6 +236,7 @@
   color: #ffffff !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
+
 .glass-btn-white:hover {
   background: rgba(255, 255, 255, 0.4) !important;
   border-color: rgba(255, 255, 255, 0.6) !important;
@@ -238,10 +252,26 @@
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.02) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
+
 .glass-btn-secondary:hover {
   background: color-mix(in srgb, var(--secondary) 75%, transparent) !important;
   border-color: var(--secondary) !important;
   transform: translateY(-1px) !important;
 }
 
-
+.glass-card-colored {
+  width: 240px;
+  height: 360px;
+  background: rgba(235, 142, 253, 0.15) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(255, 255, 255, 0.19) !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 28px 14px rgba(255, 255, 255, 0.1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}

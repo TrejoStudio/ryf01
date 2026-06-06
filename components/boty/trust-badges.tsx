@@ -61,7 +61,7 @@ export function TrustBadges() {
           {badges.map((badge, index) => (
             <div
               key={badge.title}
-              className={`glass-card p-6 lg:p-8 text-center rounded-xl transition-all duration-700 ease-out ${
+              className={`glass-card-colored mx-auto p-6 lg:p-8 flex flex-col justify-center items-center text-center transition-all duration-700 ease-out ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-8'
