@@ -151,7 +151,7 @@ export function HeroParticles() {
       ctx.globalAlpha = 0.2
 
       if (isMouseDown) {
-        ctx.fillStyle = "rgba(200, 200, 255, 0.05)"
+        ctx.fillStyle = "rgba(200, 200, 255, 0.02)"
         ctx.beginPath()
         ctx.arc(mouseX, mouseY, 80, 0, Math.PI * 2)
         ctx.fill()
