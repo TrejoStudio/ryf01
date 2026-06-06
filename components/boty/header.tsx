@@ -56,7 +56,7 @@ export function Header() {
               height={40}
               className="object-contain animate-scale-fade-in"
             />
-            <h1 className="font-serif text-3xl tracking-wider text-foreground whitespace-nowrap">partes y equipos</h1>
+            <h1 className="font-serif text-[14px] tracking-wider text-foreground whitespace-nowrap">partes y equipos</h1>
           </Link>
 
           {/* Right Actions */}
