@@ -1,15 +1,15 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { DM_Sans } from 'next/font/google'
+import { Noto_Sans } from 'next/font/google'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import { CartProvider } from '@/components/boty/cart-context'
 import './globals.css'
 
-const dmSans = DM_Sans({ 
+const notoSans = Noto_Sans({ 
   subsets: ["latin"],
-  variable: '--font-dm-sans',
-  weight: ['300', '400', '500', '600']
+  variable: '--font-noto-sans',
+  weight: ['300', '400', '500', '600', '700']
 });
 
 const vamo = localFont({
@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${vamo.variable} font-sans antialiased`}>
+      <body className={`${notoSans.variable} ${vamo.variable} font-sans antialiased`}>
         <CartProvider>
           {children}
         </CartProvider>

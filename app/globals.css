@@ -84,7 +84,7 @@
 }
 
 @theme inline {
-  --font-sans: 'DM Sans', 'DM Sans Fallback', sans-serif;
+  --font-sans: var(--font-noto-sans), sans-serif;
   --font-serif: var(--font-vamo), serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
   --color-background: var(--background);
