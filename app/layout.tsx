@@ -1,6 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { DM_Sans, Playfair_Display } from 'next/font/google'
+import { DM_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import { CartProvider } from '@/components/boty/cart-context'
 import './globals.css'
@@ -11,10 +12,9 @@ const dmSans = DM_Sans({
   weight: ['300', '400', '500', '600']
 });
 
-const playfairDisplay = Playfair_Display({ 
-  subsets: ["latin"],
-  variable: '--font-playfair',
-  weight: ['400', '500', '600', '700']
+const vamo = localFont({
+  src: '../public/fonts/vamo.otf',
+  variable: '--font-vamo',
 });
 
 export const metadata: Metadata = {
@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${playfairDisplay.variable} font-sans antialiased`}>
+      <body className={`${dmSans.variable} ${vamo.variable} font-sans antialiased`}>
         <CartProvider>
           {children}
         </CartProvider>
