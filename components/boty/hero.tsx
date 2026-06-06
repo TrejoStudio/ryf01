@@ -105,11 +105,11 @@ export function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none" />
 
         {/* Content */}
-        <div className="relative z-10 w-full pt-20 mr-14 lg:mr-0 pointer-events-none" style={{ transform: 'translateY(-500px)' }}>
+        <div className="relative z-10 w-full pt-20 mr-14 lg:mr-0 pointer-events-none" style={{ transform: 'translateY(-250px)' }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="w-full lg:max-w-xl mx-auto lg:mx-0 text-center lg:text-left pointer-events-auto">
               <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6 text-balance text-black">
-                <span className="block animate-blur-in opacity-0 font-thin text-[20px]" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>TRABAJAMOS PARA PROFESIONALES.</span>
+                <span className="block animate-blur-in opacity-0 font-thin text-[20px]" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>SOMOS PROFESIONALES.</span>
                 <span className="block animate-blur-in opacity-0 font-thin text-[30px]" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>CON LAS MEJORES MARCAS.</span>
               </h2>
               <p className="text-lg leading-relaxed mb-10 max-w-md mx-auto lg:mx-0 text-black animate-blur-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
