@@ -231,10 +231,10 @@ export default function ShopPage() {
                   key={category}
                   type="button"
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm capitalize boty-transition bg-popover ${
+                  className={`px-4 py-2 rounded-full text-sm capitalize boty-transition ${
                     selectedCategory === category
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card text-foreground/70 hover:text-foreground boty-shadow"
+                      ? "glass-btn-primary"
+                      : "glass-btn-outline"
                   }`}
                 >
                   {category}
@@ -272,8 +272,8 @@ export default function ShopPage() {
                       }}
                       className={`w-full px-6 py-4 rounded-2xl text-left capitalize boty-transition ${
                         selectedCategory === category
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-card text-foreground boty-shadow"
+                          ? "glass-btn-primary"
+                          : "glass-btn-outline"
                       }`}
                     >
                       {category}
@@ -325,7 +325,7 @@ function ProductCard({
       }`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="bg-card rounded-3xl overflow-hidden boty-shadow boty-transition group-hover:scale-[1.02]">
+      <div className="glass-card rounded-3xl overflow-hidden boty-transition group-hover:scale-[1.02]">
         {/* Image */}
         <div className="relative aspect-square bg-muted overflow-hidden">
           {/* Skeleton */}
@@ -361,7 +361,7 @@ function ProductCard({
           {/* Quick add button */}
           <button
             type="button"
-            className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 boty-transition boty-shadow"
+            className="absolute bottom-4 right-4 w-12 h-12 rounded-full glass-btn-outline flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 boty-transition"
             onClick={(e) => {
               e.preventDefault()
             }}

@@ -136,7 +136,7 @@ export default function ProductPage() {
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Product Image */}
-            <div className="relative aspect-square rounded-3xl overflow-hidden bg-card boty-shadow">
+            <div className="relative aspect-square rounded-3xl overflow-hidden glass-card">
               <Image
                 src={product.image || "/placeholder.svg"}
                 alt={product.name}
@@ -194,10 +194,10 @@ export default function ProductPage() {
                       key={size}
                       type="button"
                       onClick={() => setSelectedSize(size)}
-                      className={`px-6 py-3 rounded-full text-sm boty-transition boty-shadow ${
+                      className={`px-6 py-3 rounded-full text-sm boty-transition ${
                         selectedSize === size
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-card text-foreground hover:bg-card/80"
+                          ? "glass-btn-primary"
+                          : "glass-btn-outline"
                       }`}
                     >
                       {size}
@@ -209,11 +209,11 @@ export default function ProductPage() {
               {/* Quantity Selector */}
               <div className="mb-8">
                 <label className="text-sm font-medium text-foreground mb-3 block">Quantity</label>
-                <div className="inline-flex items-center gap-4 bg-card rounded-full px-2 py-2 boty-shadow">
+                <div className="inline-flex items-center gap-4 glass-card rounded-full px-2 py-2">
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition"
+                    className="w-10 h-10 rounded-full glass-btn-outline flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition"
                     aria-label="Decrease quantity"
                   >
                     <Minus className="w-4 h-4" />
@@ -222,7 +222,7 @@ export default function ProductPage() {
                   <button
                     type="button"
                     onClick={() => setQuantity(quantity + 1)}
-                    className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition"
+                    className="w-10 h-10 rounded-full glass-btn-outline flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition"
                     aria-label="Increase quantity"
                   >
                     <Plus className="w-4 h-4" />
@@ -235,10 +235,10 @@ export default function ProductPage() {
                 <button
                   type="button"
                   onClick={handleAddToCart}
-                  className={`flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm tracking-wide boty-transition boty-shadow ${
+                  className={`flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm tracking-wide boty-transition ${
                     isAdded
-                      ? "bg-primary/80 text-primary-foreground"
-                      : "bg-primary text-primary-foreground hover:bg-primary/90"
+                      ? "opacity-80 glass-btn-primary"
+                      : "glass-btn-primary"
                   }`}
                 >
                   {isAdded ? (
@@ -252,7 +252,7 @@ export default function ProductPage() {
                 </button>
                 <button
                   type="button"
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-transparent border border-foreground/20 text-foreground px-8 py-4 rounded-full text-sm tracking-wide boty-transition hover:bg-foreground/5"
+                  className="flex-1 inline-flex items-center justify-center gap-2 glass-btn-outline px-8 py-4 rounded-full text-sm tracking-wide boty-transition"
                 >
                   Buy Now
                 </button>
@@ -263,7 +263,7 @@ export default function ProductPage() {
                 {benefits.map((benefit) => (
                   <div
                     key={benefit.label}
-                    className="flex flex-col items-center gap-2 p-4 boty-shadow bg-transparent shadow-none rounded-md"
+                    className="flex flex-col items-center gap-2 p-4 glass-card rounded-md"
                   >
                     <benefit.icon className="w-5 h-5 text-primary" />
                     <span className="text-xs text-muted-foreground text-center">{benefit.label}</span>

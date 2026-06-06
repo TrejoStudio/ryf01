@@ -113,7 +113,7 @@ export function FeatureSection() {
               <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/c4baaf67-b900-4b90-af2a-daf25a5a4b78-5un5eTbj9Z67qEtEdsQwlYrte9dZM9.mp4" type="video/mp4" />
             </video>
             {/* Overlay Card */}
-            <div className="absolute bottom-8 left-8 right-8 bg-white p-6 shadow-lg rounded-xl">
+            <div className="absolute bottom-8 left-8 right-8 glass-card p-6 rounded-xl">
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0">
                   
@@ -250,9 +250,9 @@ export function FeatureSection() {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="group p-5 boty-transition hover:scale-[1.02] rounded-md bg-white"
+                  className="group p-5 boty-transition hover:scale-[1.02] rounded-md glass-card"
                 >
-                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full mb-3 group-hover:bg-primary/20 boty-transition bg-stone-50">
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full mb-3 group-hover:bg-primary/20 boty-transition bg-primary/10">
                     <feature.icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-medium text-foreground mb-1">{feature.title}</h3>

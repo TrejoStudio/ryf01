@@ -45,7 +45,7 @@ export function Newsletter() {
               />
               <button
                 type="submit"
-                className="group inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-8 py-4 rounded-full text-sm tracking-wide boty-transition hover:bg-primary-foreground/90"
+                className="group inline-flex items-center justify-center gap-2 glass-btn-white px-8 py-4 rounded-full text-sm tracking-wide boty-transition"
               >
                 Subscribe
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 boty-transition" />

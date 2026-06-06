@@ -48,7 +48,7 @@ export function Footer() {
                 href="https://x.com/Kerroudjm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition boty-shadow"
+                className="w-10 h-10 rounded-full glass-btn-outline flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -57,7 +57,7 @@ export function Footer() {
                 href="https://x.com/Kerroudjm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition boty-shadow"
+                className="w-10 h-10 rounded-full glass-btn-outline flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
@@ -66,7 +66,7 @@ export function Footer() {
                 href="https://x.com/Kerroudjm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition boty-shadow"
+                className="w-10 h-10 rounded-full glass-btn-outline flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition"
                 aria-label="Twitter"
               >
                 <Twitter className="w-4 h-4" />

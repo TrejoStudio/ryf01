@@ -21,7 +21,7 @@ export function CartDrawer() {
 
   return (
     <Drawer open={isOpen} onOpenChange={setIsOpen} direction="right">
-      <DrawerContent className="h-full w-full sm:max-w-[440px]">
+      <DrawerContent className="h-full w-full sm:max-w-[440px] glass-card">
         <DrawerHeader className="border-b border-border/50 p-6 py-2.5">
           <DrawerTitle className="font-serif text-2xl">Cart</DrawerTitle>
           <DrawerDescription>{itemCount} {itemCount === 1 ? 'item' : 'items'}</DrawerDescription>
@@ -125,7 +125,7 @@ export function CartDrawer() {
             {/* Checkout Button */}
             <button
               type="button"
-              className="w-full bg-primary text-primary-foreground py-4 rounded-full font-medium hover:bg-primary/90 boty-transition"
+              className="w-full glass-btn-primary py-4 rounded-full font-medium boty-transition"
             >
               Checkout
             </button>
@@ -133,7 +133,7 @@ export function CartDrawer() {
             <DrawerClose asChild>
               <button
                 type="button"
-                className="w-full border border-border text-foreground py-4 rounded-full font-medium hover:bg-muted boty-transition"
+                className="w-full glass-btn-outline py-4 rounded-full font-medium boty-transition"
               >
                 Continue Shopping
               </button>

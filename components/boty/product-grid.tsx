@@ -226,7 +226,7 @@ export function ProductGrid() {
 
         {/* Segmented Control */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-background rounded-full p-1 gap-1 relative">
+          <div className="inline-flex glass-card rounded-full p-1 gap-1 relative">
             {/* Animated background slide */}
             <div
               className="absolute top-1 bottom-1 bg-foreground rounded-full transition-all duration-300 ease-out shadow-sm"
@@ -266,7 +266,7 @@ export function ProductGrid() {
               }`}
               style={{ transitionDelay: isTransitioning ? '0ms' : `${index * 80}ms` }}
             >
-              <div className="bg-background rounded-3xl overflow-hidden boty-shadow boty-transition group-hover:scale-[1.02]">
+              <div className="glass-card rounded-3xl overflow-hidden boty-transition group-hover:scale-[1.02]">
                 {/* Image */}
                 <div className="relative aspect-square bg-muted overflow-hidden">
                   <Image
@@ -292,7 +292,7 @@ export function ProductGrid() {
                   {/* Quick add button */}
                   <button
                     type="button"
-                    className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 boty-transition boty-shadow"
+                    className="absolute bottom-4 right-4 w-10 h-10 rounded-full glass-btn-outline flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 boty-transition"
                     onClick={(e) => {
                       e.preventDefault()
                       e.stopPropagation()
@@ -332,7 +332,7 @@ export function ProductGrid() {
         <div className="text-center mt-12">
           <Link
             href="/shop"
-            className="inline-flex items-center justify-center gap-2 bg-transparent border border-foreground/20 text-foreground px-8 py-4 rounded-full text-sm tracking-wide boty-transition hover:bg-foreground/5"
+            className="inline-flex items-center justify-center gap-2 glass-btn-outline px-8 py-4 rounded-full text-sm tracking-wide boty-transition"
           >
             View All Products
           </Link>
