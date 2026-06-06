@@ -183,7 +183,7 @@ export function ProductGrid() {
       if (rect.top < viewHeight && rect.bottom > 0) {
         const totalDist = viewHeight + rect.height
         const progress = (viewHeight - rect.top) / totalDist
-        const yOffset = (progress - 0.1) * 300
+        const yOffset = (progress - 0.8) * 300
 
         requestAnimationFrame(() => {
           if (bgRef.current) {
@@ -250,8 +250,8 @@ export function ProductGrid() {
           priority
         />
       </div>
-      {/* Black overlay with 0.8 opacity */}
-      <div className="absolute inset-0 bg-black/60 z-0" />
+      {/* Blue overlay */}
+      <div className="absolute inset-0 bg-[#0C142B]/90 z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
@@ -272,7 +272,7 @@ export function ProductGrid() {
           <div className="inline-flex glass-card rounded-full p-1 gap-1 relative">
             {/* Animated background slide */}
             <div
-              className="absolute top-1 bottom-1 bg-white rounded-full transition-all duration-300 ease-out shadow-sm"
+              className="absolute top-1 bottom-1 bg-[#D6A95C] rounded-full transition-all duration-300 ease-out shadow-sm"
               style={{
                 left: selectedCategory === 'cream' ? '4px' : selectedCategory === 'oil' ? 'calc(33.333% + 2px)' : 'calc(66.666%)',
                 width: 'calc(33.333% - 4px)'
@@ -365,9 +365,9 @@ export function ProductGrid() {
         <div className="text-center mt-12">
           <Link
             href="/shop"
-            className="inline-flex items-center justify-center gap-2 glass-btn-primary px-8 py-4 rounded-full text-sm tracking-wide boty-transition text-white"
+            className="inline-flex items-center justify-center gap-2 glass-btn-orange px-8 py-4 rounded-full text-sm tracking-wide boty-transition text-white"
           >
-            View All Products
+            CATÁLOGO COMPLETO
           </Link>
         </div>
       </div>

@@ -148,7 +148,7 @@ export function Hero() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-blur-in opacity-0" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
                 <Link
                   href="/shop"
-                  className="group inline-flex items-center justify-center gap-3 glass-btn-primary px-8 py-4 rounded-full text-sm tracking-wide boty-transition"
+                  className="group inline-flex items-center justify-center gap-3 glass-btn-orange !text-black px-8 py-4 rounded-full text-sm tracking-wide boty-transition"
                 >
                   Nuestro Catálogo
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 boty-transition" />

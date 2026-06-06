@@ -231,9 +231,9 @@ export default function ShopPage() {
                   key={category}
                   type="button"
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm capitalize boty-transition ${
+                  className={`px-4 py-2 rounded-full text-sm capitalize boty-transition !text-black ${
                     selectedCategory === category
-                      ? "glass-btn-primary"
+                      ? "bg-[#CC9131]"
                       : "glass-btn-outline"
                   }`}
                 >
@@ -270,9 +270,9 @@ export default function ShopPage() {
                         setSelectedCategory(category)
                         setShowFilters(false)
                       }}
-                      className={`w-full px-6 py-4 rounded-2xl text-left capitalize boty-transition ${
+                      className={`w-full px-6 py-4 rounded-2xl text-left capitalize boty-transition !text-black ${
                         selectedCategory === category
-                          ? "glass-btn-primary"
+                          ? "bg-[#CC9131]"
                           : "glass-btn-outline"
                       }`}
                     >
@@ -375,14 +375,6 @@ function ProductCard({
         <div className="p-6">
           <h3 className="font-serif text-xl text-foreground mb-1">{product.name}</h3>
           <p className="text-sm text-muted-foreground mb-4">{product.description}</p>
-          <div className="flex items-center gap-2">
-            <span className="text-lg font-medium text-foreground">${product.price}</span>
-            {product.originalPrice && (
-              <span className="text-sm text-muted-foreground line-through">
-                ${product.originalPrice}
-              </span>
-            )}
-          </div>
         </div>
       </div>
     </Link>

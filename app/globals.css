@@ -46,6 +46,7 @@
   --sidebar-accent-foreground: #2C2C2C;
   --sidebar-border: #D8CFC4;
   --sidebar-ring: #4F5B3A;
+  --glass-blur: 70px;
 }
 
 .dark {
@@ -188,74 +189,70 @@
 
 /* Glassmorphism Design Tokens */
 .glass-card {
-  background: color-mix(in srgb, var(--card) 40%, transparent) !important;
-  backdrop-filter: blur(16px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(140%) !important;
-  border: 1px solid color-mix(in srgb, var(--border) 25%, transparent) !important;
-  box-shadow: rgba(0, 0, 0, 0.03) 0px 8px 32px 0px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.19) !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 28px 14px rgba(255, 255, 255, 0.1) !important;
 }
 
-.glass-btn-primary {
-  background: color-mix(in srgb, #e67e22 75%, transparent) !important;
-  backdrop-filter: blur(8px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
-  border: 1px solid color-mix(in srgb, #e67e22 85%, transparent) !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.05) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.glass-btn-primary:hover {
-  background: color-mix(in srgb, #e67e22 90%, transparent) !important;
-  border-color: #e67e22 !important;
-  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.08) !important;
-  transform: translateY(-1px) !important;
-}
-
-.glass-btn-outline {
-  background: color-mix(in srgb, var(--background) 20%, transparent) !important;
-  backdrop-filter: blur(8px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
-  border: 1px solid color-mix(in srgb, var(--border) 40%, transparent) !important;
-  color: var(--foreground) !important;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.02) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.glass-btn-outline:hover {
-  background: color-mix(in srgb, var(--background) 40%, transparent) !important;
-  border-color: color-mix(in srgb, var(--border) 70%, transparent) !important;
-  transform: translateY(-1px) !important;
-}
-
-.glass-btn-white {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(8px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(8px) saturate(140%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
-  color: #ffffff !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.glass-btn-white:hover {
-  background: rgba(255, 255, 255, 0.4) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  transform: translateY(-1px) !important;
-}
-
+.glass-btn-primary,
+.glass-btn-outline,
+.glass-btn-white,
 .glass-btn-secondary {
-  background: color-mix(in srgb, var(--secondary) 50%, transparent) !important;
-  backdrop-filter: blur(8px) saturate(120%) !important;
-  -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
-  border: 1px solid color-mix(in srgb, var(--secondary) 70%, transparent) !important;
-  color: var(--secondary-foreground) !important;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.02) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.19) !important;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 28px 14px rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
+.glass-btn-primary:hover,
+.glass-btn-outline:hover,
+.glass-btn-white:hover,
 .glass-btn-secondary:hover {
-  background: color-mix(in srgb, var(--secondary) 75%, transparent) !important;
-  border-color: var(--secondary) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 28px 14px rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+.glass-btn-orange {
+  background: rgba(249, 115, 22, 0.25) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+  border: 1px solid rgba(249, 115, 22, 0.45) !important;
+  box-shadow:
+    0 4px 15px rgba(249, 115, 22, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(249, 115, 22, 0.2),
+    inset 0 0 28px 14px rgba(249, 115, 22, 0.1) !important;
+  color: #ffffff !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.glass-btn-orange:hover {
+  background: rgba(249, 115, 22, 0.4) !important;
+  border-color: rgba(249, 115, 22, 0.6) !important;
+  box-shadow:
+    0 6px 20px rgba(249, 115, 22, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(249, 115, 22, 0.3),
+    inset 0 0 28px 14px rgba(249, 115, 22, 0.15) !important;
   transform: translateY(-1px) !important;
 }
 
@@ -263,8 +260,8 @@
   width: 240px;
   height: 360px;
   background: rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
   border-radius: 20px !important;
   border: 1px solid rgba(255, 255, 255, 0.19) !important;
   box-shadow:

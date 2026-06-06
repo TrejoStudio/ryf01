@@ -175,15 +175,7 @@ export default function ProductPage() {
                 </p>
               </div>
 
-              {/* Price */}
-              <div className="flex items-center gap-3 mb-8">
-                <span className="text-3xl font-medium text-foreground">${product.price}</span>
-                {product.originalPrice && (
-                  <span className="text-xl text-muted-foreground line-through">
-                    ${product.originalPrice}
-                  </span>
-                )}
-              </div>
+
 
               {/* Size Selector */}
               <div className="mb-6">
@@ -194,7 +186,7 @@ export default function ProductPage() {
                       key={size}
                       type="button"
                       onClick={() => setSelectedSize(size)}
-                      className={`px-6 py-3 rounded-full text-sm boty-transition ${
+                      className={`px-6 py-3 rounded-full text-sm boty-transition !text-[#2c2c2c] ${
                         selectedSize === size
                           ? "glass-btn-primary"
                           : "glass-btn-outline"
@@ -213,7 +205,7 @@ export default function ProductPage() {
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-10 h-10 rounded-full glass-btn-outline flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition"
+                    className="w-10 h-10 rounded-full glass-btn-outline flex items-center justify-center !text-[#2c2c2c] boty-transition"
                     aria-label="Decrease quantity"
                   >
                     <Minus className="w-4 h-4" />
@@ -222,7 +214,7 @@ export default function ProductPage() {
                   <button
                     type="button"
                     onClick={() => setQuantity(quantity + 1)}
-                    className="w-10 h-10 rounded-full glass-btn-outline flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition"
+                    className="w-10 h-10 rounded-full glass-btn-outline flex items-center justify-center !text-[#2c2c2c] boty-transition"
                     aria-label="Increase quantity"
                   >
                     <Plus className="w-4 h-4" />
@@ -235,7 +227,7 @@ export default function ProductPage() {
                 <button
                   type="button"
                   onClick={handleAddToCart}
-                  className={`flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm tracking-wide boty-transition ${
+                  className={`flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm tracking-wide boty-transition !text-[#2c2c2c] ${
                     isAdded
                       ? "opacity-80 glass-btn-primary"
                       : "glass-btn-primary"
@@ -252,7 +244,7 @@ export default function ProductPage() {
                 </button>
                 <button
                   type="button"
-                  className="flex-1 inline-flex items-center justify-center gap-2 glass-btn-outline px-8 py-4 rounded-full text-sm tracking-wide boty-transition"
+                  className="flex-1 inline-flex items-center justify-center gap-2 glass-btn-outline !text-[#2c2c2c] px-8 py-4 rounded-full text-sm tracking-wide boty-transition"
                 >
                   Buy Now
                 </button>

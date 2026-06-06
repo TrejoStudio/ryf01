@@ -94,10 +94,7 @@ export function CartDrawer() {
                     </div>
                   </div>
 
-                  {/* Price */}
-                  <div className="text-right">
-                    <p className="font-medium text-foreground">${item.price * item.quantity}</p>
-                  </div>
+
                 </div>
               ))}
             </div>
@@ -106,21 +103,7 @@ export function CartDrawer() {
 
         {items.length > 0 && (
           <DrawerFooter className="border-t border-border/50 p-6 gap-4">
-            {/* Summary */}
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between text-muted-foreground">
-                <span>Subtotal</span>
-                <span>${subtotal}</span>
-              </div>
-              <div className="flex justify-between text-muted-foreground">
-                <span>Shipping</span>
-                <span>{shipping === 0 ? 'Free' : `$${shipping}`}</span>
-              </div>
-              <div className="flex justify-between text-base font-medium text-foreground pt-2 border-t border-border/50">
-                <span>Total</span>
-                <span>${total}</span>
-              </div>
-            </div>
+
 
             {/* Checkout Button */}
             <button
