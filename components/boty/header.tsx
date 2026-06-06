@@ -52,11 +52,11 @@ export function Header() {
             <Image
               src="/marcas/Logo RyF Color.png"
               alt="Logo RyF"
-              width={40}
-              height={40}
+              width={60}
+              height={60}
               className="object-contain animate-scale-fade-in"
             />
-            <h1 className="font-serif text-[14px] tracking-wider text-foreground whitespace-nowrap">partes y equipos</h1>
+            <h1 className="font-serif text-[18px] tracking-wider text-[#072a57] whitespace-nowrap">partes y equipos</h1>
           </Link>
 
           {/* Right Actions */}
