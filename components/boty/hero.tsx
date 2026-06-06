@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { HeroParticles } from "./hero-particles"
 
 const FRAME_COUNT = 144;
 const START_FRAME = 1014;
@@ -12,6 +13,8 @@ const currentFrame = (index: number) => `/Secuencia2/Sequence ${String(START_FRA
 
 export function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const midRef = useRef<HTMLDivElement>(null);
+  const fgRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -40,8 +43,9 @@ export function Hero() {
   const drawCover = (ctx: CanvasRenderingContext2D, img: HTMLImageElement, canvas: HTMLCanvasElement) => {
     const hRatio = canvas.width / img.width;
     const vRatio = canvas.height / img.height;
-    const ratio = Math.max(hRatio, vRatio);
-    const centerShift_x = (canvas.width - img.width * ratio) / 2;
+    const ratio = Math.max(hRatio, vRatio) * 0.9;
+    const shiftX = typeof window !== 'undefined' && window.innerWidth >= 1024 ? 200 : 0;
+    const centerShift_x = (canvas.width - img.width * ratio) / 2 + shiftX;
     const centerShift_y = (canvas.height - img.height * ratio) / 2;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(
@@ -83,8 +87,28 @@ export function Hero() {
       }
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      if (window.innerWidth < 1024) return; // Disable parallax on mobile
+
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
+
+      requestAnimationFrame(() => {
+        if (canvasRef.current) {
+          canvasRef.current.style.transform = `translate(${x * -10}px, ${y * -10}px)`;
+        }
+        if (midRef.current) {
+          midRef.current.style.transform = `translate(${x * -25}px, ${y * -25}px)`;
+        }
+        if (fgRef.current) {
+          fgRef.current.style.transform = `translate(${x * -50}px, calc(-250px + ${y * -50}px))`;
+        }
+      });
+    };
+
     window.addEventListener('scroll', handleScrollOrResize);
     window.addEventListener('resize', handleResize);
+    window.addEventListener('mousemove', handleMouseMove);
 
     // Initial setup
     handleResize();
@@ -92,25 +116,31 @@ export function Hero() {
     return () => {
       window.removeEventListener('scroll', handleScrollOrResize);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [imagesLoaded]);
 
   return (
-    <section ref={sectionRef} className="relative h-[300vh]" style={{ backgroundColor: '#e3e1e2' }}>
+    <section ref={sectionRef} className="relative h-[300vh]" style={{ backgroundColor: '#ffffff' }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
         {/* Canvas for Scroll Animation */}
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover" />
+        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover transition-transform duration-75 ease-out" />
+
+        {/* Particles Overlay */}
+        <div ref={midRef} className="absolute inset-0 w-full h-full pointer-events-none transition-transform duration-75 ease-out">
+          <HeroParticles />
+        </div>
 
         {/* Bottom fade gradient */}
         <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none" />
 
         {/* Content */}
-        <div className="relative z-10 w-full pt-20 mr-14 lg:mr-0 pointer-events-none" style={{ transform: 'translateY(-250px)' }}>
+        <div ref={fgRef} className="relative z-10 w-full pt-20 mr-14 lg:mr-0 pointer-events-none transition-transform duration-75 ease-out" style={{ transform: 'translateY(-250px)' }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="w-full lg:max-w-xl mx-auto lg:mx-0 text-center lg:text-left pointer-events-auto">
               <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6 text-balance text-black">
-                <span className="block animate-blur-in opacity-0 font-thin text-[20px]" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>SOMOS PROFESIONALES.</span>
-                <span className="block animate-blur-in opacity-0 font-thin text-[30px]" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>CON LAS MEJORES MARCAS.</span>
+                <span className="block animate-blur-in opacity-0 font-thin text-[20px]" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>las mejores marcas en</span>
+                <span className="block animate-blur-in opacity-0 font-thin text-[30px]" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>repuestos originales</span>
               </h2>
               <p className="text-lg leading-relaxed mb-10 max-w-md mx-auto lg:mx-0 text-black animate-blur-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
                 Descubre nuestro ámplio catálogo de partes y respuestos originales para tu maquinaria.
@@ -120,7 +150,7 @@ export function Hero() {
                   href="/shop"
                   className="group inline-flex items-center justify-center gap-3 glass-btn-primary px-8 py-4 rounded-full text-sm tracking-wide boty-transition"
                 >
-                  Shop Now
+                  Nuestro Catálogo
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 boty-transition" />
                 </Link>
               </div>
@@ -130,7 +160,7 @@ export function Hero() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-black pointer-events-none">
-          <span className="text-xs tracking-widest uppercase font-bold">Scroll to animate</span>
+          <span className="text-xs tracking-widest uppercase font-bold">Explora nuestra web</span>
           <div className="w-px h-12 bg-black/20 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1/2 bg-black/60 animate-pulse" />
           </div>

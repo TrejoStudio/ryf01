@@ -196,18 +196,18 @@
 }
 
 .glass-btn-primary {
-  background: color-mix(in srgb, var(--primary) 75%, transparent) !important;
+  background: color-mix(in srgb, #e67e22 75%, transparent) !important;
   backdrop-filter: blur(8px) saturate(120%) !important;
   -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
-  border: 1px solid color-mix(in srgb, var(--primary) 85%, transparent) !important;
-  color: var(--primary-foreground) !important;
+  border: 1px solid color-mix(in srgb, #e67e22 85%, transparent) !important;
+  color: #ffffff !important;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.05) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .glass-btn-primary:hover {
-  background: color-mix(in srgb, var(--primary) 90%, transparent) !important;
-  border-color: var(--primary) !important;
+  background: color-mix(in srgb, #e67e22 90%, transparent) !important;
+  border-color: #e67e22 !important;
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.08) !important;
   transform: translateY(-1px) !important;
 }

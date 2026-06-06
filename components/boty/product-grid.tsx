@@ -147,8 +147,10 @@ export function ProductGrid() {
   const [headerVisible, setHeaderVisible] = useState(false)
   const gridRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+  const bgRef = useRef<HTMLDivElement>(null)
   const { addItem } = useCart()
-  
+
   const filteredProducts = products.filter(product => product.category === selectedCategory)
 
   const handleCategoryChange = (category: Category) => {
@@ -169,6 +171,34 @@ export function ProductGrid() {
       const img = new window.Image()
       img.src = product.image
     })
+  }, [])
+
+  // Background scroll parallax
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current || !bgRef.current) return
+      const rect = sectionRef.current.getBoundingClientRect()
+      const viewHeight = window.innerHeight
+
+      if (rect.top < viewHeight && rect.bottom > 0) {
+        const totalDist = viewHeight + rect.height
+        const progress = (viewHeight - rect.top) / totalDist
+        const yOffset = (progress - 0.1) * 300
+
+        requestAnimationFrame(() => {
+          if (bgRef.current) {
+            bgRef.current.style.transform = `translateY(${yOffset}px) scale(1.15)`
+          }
+        })
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    handleScroll()
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   useEffect(() => {
@@ -209,17 +239,30 @@ export function ProductGrid() {
   }, [])
 
   return (
-    <section className="py-24 bg-card">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section ref={sectionRef} className="relative py-24 overflow-hidden bg-black">
+      {/* Background Image */}
+      <div ref={bgRef} className="absolute inset-0 z-0 transition-transform duration-100 ease-out will-change-transform">
+        <Image
+          src="/images/bg-excavator.jpg"
+          alt="Heavy machinery background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      {/* Black overlay with 0.8 opacity */}
+      <div className="absolute inset-0 bg-black/60 z-0" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16">
           <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
             Our Collection
           </span>
-          <h2 className={`font-serif leading-tight text-foreground mb-4 text-balance text-7xl ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
+          <h2 className={`font-serif leading-tight text-white mb-4 text-balance text-7xl ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
             Gentle essentials
           </h2>
-          <p className={`text-lg text-muted-foreground max-w-md mx-auto ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
+          <p className={`text-lg text-gray-300 max-w-md mx-auto ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
             Thoughtfully crafted products for your daily skincare ritual
           </p>
         </div>
@@ -240,11 +283,10 @@ export function ProductGrid() {
                 key={category.value}
                 type="button"
                 onClick={() => handleCategoryChange(category.value)}
-                className={`relative z-10 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                  selectedCategory === category.value
-                    ? "text-background"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`relative z-10 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === category.value
+                  ? "text-background"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {category.label}
               </button>
@@ -253,7 +295,7 @@ export function ProductGrid() {
         </div>
 
         {/* Product Grid */}
-        <div 
+        <div
           ref={gridRef}
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
@@ -261,9 +303,8 @@ export function ProductGrid() {
             <Link
               key={`${selectedCategory}-${product.id}`}
               href={`/product/${product.id}`}
-              className={`group transition-all duration-500 ease-out ${
-                isVisible && !isTransitioning ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
+              className={`group transition-all duration-500 ease-out ${isVisible && !isTransitioning ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                }`}
               style={{ transitionDelay: isTransitioning ? '0ms' : `${index * 80}ms` }}
             >
               <div className="glass-card rounded-3xl overflow-hidden boty-transition group-hover:scale-[1.02]">
@@ -278,13 +319,12 @@ export function ProductGrid() {
                   {/* Badge */}
                   {product.badge && (
                     <span
-                      className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs tracking-wide bg-white text-black ${
-                        product.badge === "Sale"
-                          ? "bg-destructive/10 text-destructive"
-                          : product.badge === "New"
+                      className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs tracking-wide bg-white text-black ${product.badge === "Sale"
+                        ? "bg-destructive/10 text-destructive"
+                        : product.badge === "New"
                           ? "bg-primary/10 text-primary"
                           : "bg-accent text-accent-foreground"
-                      }`}
+                        }`}
                     >
                       {product.badge}
                     </span>
