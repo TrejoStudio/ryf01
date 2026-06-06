@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 
 const brands = [
-  { name: "CASE", logo: "/marcas/CASE.png" },
   { name: "CAT", logo: "/marcas/CAT.png" },
   { name: "DEERE", logo: "/marcas/DEERE.png" },
+  { name: "VOLVO", logo: "/marcas/VOLVO.png" },
   { name: "JCB", logo: "/marcas/JCB.png" },
   { name: "KOMATSU", logo: "/marcas/KOMATSU.png" },
-  { name: "VOLVO", logo: "/marcas/VOLVO.png" }
+  { name: "CASE", logo: "/marcas/CASE.png" }
 ]
 
 export function TrustBadges() {
