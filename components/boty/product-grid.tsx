@@ -256,14 +256,14 @@ export function ProductGrid() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16">
-          <span className={`text-sm tracking-[0.3em] uppercase text-primary mb-4 block ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
-            Our Collection
+          <span className={`text-sm tracking-[0.3em] uppercase text-white mb-4 block ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.2s', animationFillMode: 'forwards' } : {}}>
+            NUESTRO CATÁLOGO
           </span>
-          <h2 className={`font-serif leading-tight text-white mb-4 text-balance text-7xl ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
-            Gentle essentials
+          <h2 className={`font-serif leading-tight text-white mb-4 text-balance text-[40px] ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
+            PRODUCTOS ESCENCIALES
           </h2>
-          <p className={`text-lg text-gray-300 max-w-md mx-auto ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
-            Thoughtfully crafted products for your daily skincare ritual
+          <p className={`text-lg text-white max-w-md mx-auto ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
+            Te mostramos algunos de los productos más solictados por nuestros clientes.
           </p>
         </div>
 
@@ -272,7 +272,7 @@ export function ProductGrid() {
           <div className="inline-flex glass-card rounded-full p-1 gap-1 relative">
             {/* Animated background slide */}
             <div
-              className="absolute top-1 bottom-1 bg-foreground rounded-full transition-all duration-300 ease-out shadow-sm"
+              className="absolute top-1 bottom-1 bg-white rounded-full transition-all duration-300 ease-out shadow-sm"
               style={{
                 left: selectedCategory === 'cream' ? '4px' : selectedCategory === 'oil' ? 'calc(33.333% + 2px)' : 'calc(66.666%)',
                 width: 'calc(33.333% - 4px)'
@@ -284,8 +284,8 @@ export function ProductGrid() {
                 type="button"
                 onClick={() => handleCategoryChange(category.value)}
                 className={`relative z-10 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === category.value
-                  ? "text-background"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-black font-semibold"
+                  : "text-white/60 hover:text-white"
                   }`}
               >
                 {category.label}
@@ -346,22 +346,15 @@ export function ProductGrid() {
                     }}
                     aria-label="Add to cart"
                   >
-                    <ShoppingBag className="w-4 h-4 text-foreground" />
+                    <ShoppingBag className="w-4 h-4 text-white" />
                   </button>
                 </div>
 
                 {/* Info */}
                 <div className="p-5">
-                  <h3 className="font-serif text-lg text-foreground mb-1">{product.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{product.description}</p>
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium text-foreground">${product.price}</span>
-                    {product.originalPrice && (
-                      <span className="text-sm text-muted-foreground line-through">
-                        ${product.originalPrice}
-                      </span>
-                    )}
-                  </div>
+                  <h3 className="font-serif text-[16px] text-white mb-1">{product.name}</h3>
+                  <p className="text-sm text-white/70 mb-3">{product.description}</p>
+
                 </div>
               </div>
             </Link>
@@ -372,7 +365,7 @@ export function ProductGrid() {
         <div className="text-center mt-12">
           <Link
             href="/shop"
-            className="inline-flex items-center justify-center gap-2 glass-btn-outline px-8 py-4 rounded-full text-sm tracking-wide boty-transition"
+            className="inline-flex items-center justify-center gap-2 glass-btn-primary px-8 py-4 rounded-full text-sm tracking-wide boty-transition text-white"
           >
             View All Products
           </Link>
