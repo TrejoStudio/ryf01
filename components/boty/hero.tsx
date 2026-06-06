@@ -44,7 +44,7 @@ export function Hero() {
     const hRatio = canvas.width / img.width;
     const vRatio = canvas.height / img.height;
     const ratio = Math.max(hRatio, vRatio) * 0.9;
-    const shiftX = typeof window !== 'undefined' && window.innerWidth >= 1024 ? 100 : 0;
+    const shiftX = typeof window !== 'undefined' && window.innerWidth >= 1024 ? 200 : 0;
     const centerShift_x = (canvas.width - img.width * ratio) / 2 + shiftX;
     const centerShift_y = (canvas.height - img.height * ratio) / 2;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -101,7 +101,7 @@ export function Hero() {
           midRef.current.style.transform = `translate(${x * -25}px, ${y * -25}px)`;
         }
         if (fgRef.current) {
-          fgRef.current.style.transform = `translate(${x * -50}px, calc(-250px + ${y * -50}px))`;
+          fgRef.current.style.transform = `translate(${x * -50}px, calc(-150px + ${y * -50}px))`;
         }
       });
     };
@@ -135,7 +135,7 @@ export function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none" />
 
         {/* Content */}
-        <div ref={fgRef} className="relative z-10 w-full pt-20 mr-14 lg:mr-0 pointer-events-none transition-transform duration-75 ease-out" style={{ transform: 'translateY(-250px)' }}>
+        <div ref={fgRef} className="relative z-10 w-full pt-20 mr-14 lg:mr-0 pointer-events-none transition-transform duration-75 ease-out" style={{ transform: 'translateY(-150px)' }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="w-full lg:max-w-xl mx-auto lg:mx-0 text-center lg:text-left pointer-events-auto">
               <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6 text-balance text-black">
