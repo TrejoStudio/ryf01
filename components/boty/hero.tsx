@@ -44,7 +44,7 @@ export function Hero() {
     const hRatio = canvas.width / img.width;
     const vRatio = canvas.height / img.height;
     const ratio = Math.max(hRatio, vRatio) * 0.9;
-    const shiftX = typeof window !== 'undefined' && window.innerWidth >= 1024 ? 200 : 0;
+    const shiftX = typeof window !== 'undefined' && window.innerWidth >= 1024 ? 100 : 0;
     const centerShift_x = (canvas.width - img.width * ratio) / 2 + shiftX;
     const centerShift_y = (canvas.height - img.height * ratio) / 2;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
