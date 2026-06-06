@@ -22,7 +22,7 @@ export function Hero() {
 
     let loadedCount = 0;
     const newImages: HTMLImageElement[] = [];
-    
+
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
       img.src = currentFrame(i);
@@ -56,10 +56,10 @@ export function Hero() {
 
     const handleScrollOrResize = () => {
       if (!sectionRef.current || !canvasRef.current) return;
-      
+
       const rect = sectionRef.current.getBoundingClientRect();
       const scrollFraction = -rect.top / (rect.height - window.innerHeight);
-      
+
       const frameIndex = Math.min(
         FRAME_COUNT - 1,
         Math.max(0, Math.floor(scrollFraction * FRAME_COUNT))
@@ -85,7 +85,7 @@ export function Hero() {
 
     window.addEventListener('scroll', handleScrollOrResize);
     window.addEventListener('resize', handleResize);
-    
+
     // Initial setup
     handleResize();
 
@@ -100,7 +100,7 @@ export function Hero() {
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
         {/* Canvas for Scroll Animation */}
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover" />
-        
+
         {/* Bottom fade gradient */}
         <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none" />
 
@@ -108,11 +108,8 @@ export function Hero() {
         <div className="relative z-10 w-full pt-20 mr-14 lg:mr-0 pointer-events-none">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="w-full lg:max-w-xl mx-auto lg:mx-0 text-center lg:text-left pointer-events-auto">
-              <span className="text-sm uppercase mb-6 block text-black animate-blur-in opacity-0 tracking-normal" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
-                Natural Skincare
-              </span>
               <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6 text-balance text-black">
-                <span className="block animate-blur-in opacity-0 font-thin" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>Glow gently.</span>
+                <span className="block animate-blur-in opacity-0 font-thin text-[12px]" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>Glow gently.</span>
                 <span className="block animate-blur-in opacity-0 font-thin xl:text-9xl text-7xl" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>Beatifully you.</span>
               </h2>
               <p className="text-lg leading-relaxed mb-10 max-w-md mx-auto lg:mx-0 text-black animate-blur-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
