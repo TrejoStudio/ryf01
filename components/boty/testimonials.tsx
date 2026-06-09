@@ -81,7 +81,7 @@ const testimonials = [
 const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
   <div className="glass-card rounded-3xl p-6 mb-4 flex-shrink-0">
     {/* Stars */}
-    
+
 
     {/* Quote */}
     <p className="text-foreground/80 leading-relaxed mb-4 text-pretty font-medium text-xl font-serif tracking-wide">
@@ -104,7 +104,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
 export function Testimonials() {
   const [headerVisible, setHeaderVisible] = useState(false)
   const headerRef = useRef<HTMLDivElement>(null)
-  
+
   const column1 = [testimonials[0], testimonials[3], testimonials[6]]
   const column2 = [testimonials[1], testimonials[4], testimonials[7]]
   const column3 = [testimonials[2], testimonials[5], testimonials[8]]
@@ -148,7 +148,7 @@ export function Testimonials() {
           {/* Gradient Overlays */}
           <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
-          
+
           {/* Mobile - Single Column */}
           <div className="md:hidden h-[600px]">
             <div className="relative overflow-hidden h-full">
